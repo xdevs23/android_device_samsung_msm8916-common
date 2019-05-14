@@ -63,45 +63,9 @@ PRODUCT_COPY_FILES += \
     $(AUDIO_CONFIG_PATH)/msm8916_32/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
     $(AUDIO_CONFIG_PATH)/msm8916_32/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
 
-# Audio encoders
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.hw.aac.encoder=false
-
-# Audio - Fluence
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.fluence.speaker=true \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=false \
-    ro.vendor.audio.sdk.fluencetype=none \
-    ro.vendor.audio.sdk.ssr=false
-
-# Audio offload
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.offload.buffer.size.kb=32 \
-    vendor.audio.offload.gapless.enabled=true \
-    audio.offload.min.duration.secs=30 \
-    vendor.audio.offload.track.enable=true \
-    vendor.audio.tunnel.encode=false
-
-# Audio voice recording
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.voice.path.for.pcm.voip=true \
-    vendor.voice.playback.conc.disabled=true \
-    vendor.voice.record.conc.disabled=true \
-    vendor.voice.voip.conc.disabled=true
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor
-
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.hfp.client=1 \
-    ro.bluetooth.dun=true \
-    ro.bluetooth.hfp.ver=1.7 \
-    ro.bluetooth.sap=true \
-    ro.qualcomm.bt.hci_transport=smd \
-    vendor.qcom.bluetooth.soc=pronto
 
 # BoringSSL Hacks
 PRODUCT_PACKAGES += \
@@ -110,11 +74,6 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera.disable_treble=true \
-    camera2.portability.force_api=1 \
-    debug.camcorder.disablemeta=true
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -139,11 +98,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/data/dsi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/dsi_config.xml \
     $(LOCAL_PATH)/configs/data/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml \
     $(LOCAL_PATH)/configs/data/qmi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/qmi_config.xml
-
-# Data modules
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=false \
-    ro.use_data_netmgrd=false
 
 # Display
 PRODUCT_PACKAGES += \
@@ -186,13 +140,6 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     mkfs.f2fs
 
-# Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.composition.type=c2d \
-    debug.egl.hw=1 \
-    debug.sf.hw=1 \
-    debug.hwui.use_buffer_age=false
-
 # GPS Configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/flp.conf \
@@ -207,13 +154,6 @@ PRODUCT_PACKAGES += \
     com.android.location.provider.xml \
     gps.msm8916 \
     libshim_gps
-
-# GPS Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.gps.qc_nlp_in_use=1 \
-    persist.loc.nlp_name=com.qualcomm.location \
-    ro.gps.agps_provider=1 \
-    ro.pip.gated=0
 
 # Headers
 PRODUCT_VENDOR_KERNEL_HEADERS := \
@@ -277,23 +217,6 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     libOmxVdpp
 
-# Media
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.media.treble_omx=false \
-    media.aac_51_output_enabled=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-fma2dp=true \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-qcp=true \
-    media.stagefright.enable-scan=true \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true \
-    media.stagefright.use-awesome=true \
-    media.swhevccodectype=0 \
-    mm.enable.qcom_parser=3183219 \
-    mm.enable.smoothstreaming=true \
-    mmp.enable.3g2=true
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -302,16 +225,6 @@ PRODUCT_PACKAGES += \
     libcurl \
     libkeyutils \
     tcpdump
-
-# Misc.
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.mdpcomp.logs=0 \
-    dev.pm.dyn_samplingrate=1 \
-    persist.hwc.enable_vds=1 \
-    persist.hwc.mdpcomp.enable=true \
-    persist.sys.storage_preload=1 \
-    ro.data.large_tcp_window_size=true \
-    sys.disable_ext_animation=1
 
 # OEM Unlock
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -356,12 +269,6 @@ PRODUCT_PACKAGES += \
     macloader \
     rmnetcli
 
-# Radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.add_power_save=1 \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.sib16_support=1
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -404,9 +311,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_1="" \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3="" \
-    ril.subscription.types=NV,RUIM \
     DEVICE_PROVISIONED=1 \
-    rild.libpath=/system/lib/libsec-ril.so \
     ro.multisim.set_audio_params=true
 
 # SAMP SPCM
@@ -432,10 +337,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
-
-# Vendor security patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2017-09-01
 
 # Vibrator
 PRODUCT_PACKAGES += \
